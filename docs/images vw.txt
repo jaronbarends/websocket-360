@@ -1,0 +1,22 @@
+zwart
+color A1A1
+
+platinum grey
+color-2R2R
+
+
+
+
+	rood
+color G2G2
+<img width="821" title="" class="" src="http://cgi.volkswagen.nl/V/MODELTYPE_BEET/2016/light/TRIMLINE_BEET_DESI/G2G2/mstnd01/TRIMLINE_BEET_DESI_door-2_rim-PJ1_lamp-8ID_color-G2G2_view-01.jpg" style="display: none;">
+	1 t/m 31 step 2
+
+
+
+		silver
+		color-0B0B
+
+white
+color-0Q0Q
+

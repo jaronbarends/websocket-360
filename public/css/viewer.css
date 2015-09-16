@@ -1,0 +1,33 @@
+/*
+* hub.css
+* css that's only applicable for hubs of the app
+*/
+
+.viewer {
+	margin: 1em auto;
+	width: 600px;
+	height: 440px;
+	position: relative;
+}
+
+.viewer img {
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: none;
+	width: 100%;
+	height: auto;
+}
+
+.viewer img.active {
+	display: block;
+}
+
+.debug-stepper {
+	/*margin-top: 600px;*/
+}
+
+
+.debug-stepper {
+	display: none;
+}

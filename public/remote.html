@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+	<meta charset="utf-8">
+
+	<title>Remote</title>
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+	<link type="text/css" rel="stylesheet" href="css/shared.css" />
+	<link type="text/css" rel="stylesheet" href="css/remote.css" />
+
+</head>
+
+<body>
+
+	<div class="content-width">
+
+		<form id="login-form" action="">
+			<input type="submit" value="Go">
+		</form>
+
+
+	</div><!-- /.content-width -->
+
+	<div id="colorpicker" class="colorpicker">
+		<ul class="color-list"></ul>
+	</div>
+
+
+	<!-- Including the JS libraries that we use -->
+	<script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+
+	<!-- Socket.io library -->
+	<script src="/socket.io/socket.io.js"></script>
+
+	<!-- Main JavaScript file -->
+	<script src="js/remote.js"></script>
+	<script src="js/socket.js"></script>
+	
+	<script src="js/device-orientation.js"></script>
+
+</body>
+</html>

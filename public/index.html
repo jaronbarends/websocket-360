@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+	<meta charset="utf-8">
+
+	<title>360</title>
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+	<link type="text/css" rel="stylesheet" href="css/shared.css" />
+	<link type="text/css" rel="stylesheet" href="css/viewer.css" />
+	<link type="text/css" rel="stylesheet" href="css/qr-code.css" />
+
+</head>
+
+<body>
+	
+
+
+	<div id="viewer" class="viewer">
+	</div>
+	
+	<h1>Give the Beetle a spin!</h1>
+	<div id="qr-box" class="qr-box">
+		<div id="qr-code" class="qr-code"></div>
+	</div>
+
+	<div class="debug-stepper">
+		<a href="#" id="stepper">zup</a><span id="currDir">0</span>
+	</div>
+
+	<div id="devices-container" class="devices-container">
+		<!-- will be filled with joining devices -->
+	</div>
+
+	<table id="orientation-table" class="gyro-table u-hidden">
+		<tr>
+			<th>tilt LR (gamma)</th>
+			<th>tilt FB (beta)</th>
+			<th>dir (alpha)</th>
+		</tr>
+	</table>
+
+	<div id="clone-src" class="u-hidden">
+
+	</div>
+
+	<!-- Including the JS libraries that we use -->
+	<script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+
+	<!-- Socket.io library -->
+	<script src="/socket.io/socket.io.js"></script>
+
+	<!-- Main JavaScript file -->
+	<script src="js/viewer.js"></script>
+	<script src="js/socket.js"></script>
+	<script src="js/add-qr-code.js"></script>
+
+</body>
+</html>
