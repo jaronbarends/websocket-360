@@ -21,7 +21,10 @@
 
 	var $sgViewer = $('#viewer'),
 		$sgActiveImg,
-		sgActiveImgIdx;
+		sgActiveImgIdx,
+		sgNumImages = 32;//most often 16
+
+	var $sgQrBox = $('#qr-box');
 	
 	/**
 	* add identifier for this user
@@ -69,8 +72,10 @@
 			//createDevice(newUser);
 		}
 		//data.users is object; transform to array
-		console.log('new user. number of users:'+sgUsers.length);
+		//console.log('new user. number of users:'+sgUsers.length);
 		//console.log(data);
+
+		$sgQrBox.fadeOut();
 	};
 
 
@@ -85,6 +90,7 @@
 			//there is no removed user when a client disconnects that hadn't joined the room yet
 			var removedUserId = data.removedUser.id;
 			removeDevice(removedUserId);
+			$sgQrBox.fadeIn();
 		}
 	};
 	
@@ -123,8 +129,8 @@
 	* @returns {undefined}
 	*/
 	var rotateViewer = function(dir) {
-		//viewer contains 16 images; set appropriate one to active
-		var stepSize= 360/16,
+		//viewer contains 16 or 32 images; set appropriate one to active
+		var stepSize= 360/sgNumImages,
 			idx;
 
 		if (dir < 0) {
@@ -134,11 +140,11 @@
 		}
 
 		idx = Math.floor(dir/stepSize);
-		if (idx === 16) {
+		if (idx === sgNumImages) {
 			idx = 0;
 		}
 		//the image sequence is opposite to the turning direction
-		idx = 15-idx;
+		idx = sgNumImages-1-idx;
 
 		if (idx !== sgActiveImgIdx) {
 			//change the image
@@ -272,27 +278,27 @@
 	* @returns {undefined}
 	*/
 	var initViewer = function(colorStr) {
-		var urlStart = 'http://cgi.volkswagen.nl/V/MODELTYPE_BEET/2016/light/TRIMLINE_BEET_DESI/G2G2/mstnd01/TRIMLINE_BEET_DESI_door-2_rim-PJ1_lamp-8ID_color-',
-			urlMiddle = '_view-',
-			urlEnd = '.jpg';
-			//$imgSrc = $sgViewer.find('img').eq(0),
-
 		var urlParts = [
-			'http://cgi.volkswagen.nl/V/MODELTYPE_BEET/2016/light/TRIMLINE_BEET_DESI/',
-			'/mstnd01/TRIMLINE_BEET_DESI_door-2_rim-PJ1_lamp-8ID_color-',
+			//'http://cgi.volkswagen.nl/V/MODELTYPE_BEET/2016/light/TRIMLINE_BEET_DESI/',
+			//'/mstnd01/TRIMLINE_BEET_DESI_door-2_rim-PJ1_lamp-8ID_color-',
+			'http://cgi.volkswagen.nl/V/MODELTYPE_UP/2016/light/TRIMLINE_UP_MOVEUP/',
+			'/mstnd01/TRIMLINE_UP_MOVEUP_door-4_rim-C0D_lamp-8IA_color-',
 			'_view-',
 			'.jpg'
 		];
 
 		if (!colorStr) {
-			colorStr = 'G2G2';
+			colorStr = 'B4B4';//white
 		}
 
 		$sgViewer.empty();
 
-
-		//images are named 01, 03, ..., 31
-		for (var i=1; i<32; i+=2) {
+		if (sgNumImages === 32) {
+			var increment = 1;//when images are numbered 01, 02, 03, ..., 32
+		} else if (sgNumImages === 16) {
+			//var increment = 2;//when images are numbered 01, 03, ..., 31
+		}
+		for (var i=1; i<33; i+=increment) {
 			var viewStr = ''+i;
 			if (i<10) {
 				viewStr = '0'+viewStr;

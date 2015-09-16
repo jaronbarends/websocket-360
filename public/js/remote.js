@@ -23,14 +23,14 @@
 
 	var sgColors = [
 			{
-				name: 'Platinum Grey',
-				imgColor: '2R2R',
-				cssColor: '#494a4c'
+				name: 'Candy white',
+				imgColor: 'B4B4',
+				cssColor: '#dedad0'
 			},
 			{
-				name: 'Silver',
-				imgColor: '0B0B',
-				cssColor: '#d2cec8 '
+				name: 'Deep black',
+				imgColor: '2T2T',
+				cssColor: '#202020 '
 			},
 			{
 				name: 'Red',
@@ -235,6 +235,11 @@
 				cssColor: $a.attr('data-css-color')
 			};
 
+		$a.closest('ul')
+			.find('a')
+			.removeClass('is-active');
+		$a.addClass('is-active');
+
 		emitEvent('colorchange', data);
 	};
 	
@@ -246,15 +251,28 @@
 	*/
 	var initColorPicker = function() {
 		var $colorpicker = $('#colorpicker'),
-			$ul = $colorpicker.find('.color-list');
+			$ul = $colorpicker.find('.color-list'),
+			$aSrc = $('#clone-src').find('#color-src');
+
 		for (var i=0, len=sgColors.length; i<len; i++) {
 			var color = sgColors[i];
 			var $li = $('<li></li>'),
-				$a = $('<a href="#">').appendTo($li);
+				$a = $aSrc.clone()
+					.removeAttr('id')
+					.appendTo($li);
 
 			$a.attr('data-color-name', color.name)
-				.attr('data-img-color', color.imgColor)
-				.css('background', color.cssColor);
+				.attr('data-img-color', color.imgColor);
+
+			if (i === 0) {
+				$a.addClass('is-active');
+			}
+
+			$a.find('.svg')
+				.css('color', color.cssColor)
+				.end()
+				.find('.color-name')
+				.text(color.name);
 
 			$ul.append($li);
 		}

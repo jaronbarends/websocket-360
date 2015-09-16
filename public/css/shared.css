@@ -14,14 +14,44 @@
 /*-- End reset --*/
 
 
+@font-face {
+	font-family:"VWHeadlineOT";
+	src:url("fonts/vwtextweb-light.eot");
+	src:local("VWText-Regular"),url("fonts/vwtextweb-light.woff") format("woff"),url("fonts/vwtextweb-light.svg") format("svg"),url("fonts/vwtextweb-light.ttf") format("ttf");
+	font-weight:normal;
+	font-style:normal
+}
+@font-face {
+	font-family:"VWHeadlineOT";
+	src:url("fonts/vwtextweb-regular.eot");
+	src:local("VWText-Regular"),url("fonts/vwtextweb-regular.woff") format("woff"),url("fonts/vwtextweb-regular.svg") format("svg"),url("fonts/vwtextweb-regular.ttf") format("ttf");
+	font-weight:600;
+	font-style:normal
+}
+@font-face {
+	font-family:"VWHeadlineOT";
+	src:url("fonts/vwtextweb-bold.eot");
+	src:local("VWText-Bold"),url("fonts/vwtextweb-bold.woff") format("woff"),url("fonts/vwtextweb-bold.svg") format("svg"),url("fonts/vwtextweb-bold.ttf") format("ttf");
+	font-weight:bold;
+	font-style:normal
+}
+
+
 html {
 	font-size: 62.5%;/* 10px */
 }
 
 body {
-	font-family: Helvetica, arial, sans-serif;
+	font-family: VWHeadlineOT, Helvetica, arial, sans-serif;
 	font-size: 1.6rem;
+	color: #666;
 	line-height: 1.75;
+}
+
+h1 {
+	font-size: 3.6rem;
+	font-weight: bold;
+	text-align: center;
 }
 
 
@@ -37,7 +67,7 @@ body {
 
 	input[type="submit"] {
 		border-color: transparent;
-		padding: 0.5em 1em;
+		padding: 0.5em 2em;
 		background: #1f81b1;
 		color: white;
 	}
