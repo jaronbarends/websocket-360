@@ -28,6 +28,7 @@
 	var init = function() {
 
 		if (window.DeviceOrientationEvent) {
+			//this only checks if the *browser* supports device orientation. It doesn't say anything about the device!
 			window.addEventListener('deviceorientation', deviceOrientationHandler, false);
 		} else {
 			//notify the rest of the page deviceorientation is not supported

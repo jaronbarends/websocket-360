@@ -15,7 +15,7 @@
 	// with sg so we can easily distinguish them from "normal" vars
 	var sgUsername = '',
 		sgRole = 'remote',
-		sgUserColor,
+		// sgUserColor,
 		sgOrientation = {},
 		sgCompassCorrection = 0,
 		sgScreenAngle,
@@ -44,9 +44,9 @@
 	* add identifier for this user
 	* @returns {undefined}
 	*/
-	var initIdentifier = function() {
-		$('#id-box').find('.user-id').text(io.id);
-	};
+	// var initIdentifier = function() {
+	// 	$('#id-box').find('.user-id').text(io.id);
+	// };
 
 
 	/**
@@ -102,8 +102,8 @@
 		var data = {
 				role: sgRole,
 				id: io.id,
-				username: sgUsername,
-				color: sgUserColor
+				username: sgUsername
+				// color: sgUserColor
 			};
 
 		io.emit('join', data);
@@ -114,14 +114,14 @@
 	* set an identifying color for this user
 	* @returns {undefined}
 	*/
-	var setUserColor = function() {
-		var colors = ['Aqua', 'Aquamarine', 'Black', 'Blue', 'BlueViolet', 'Brown', 'CadetBlue', 'Chartreuse', 'Chocolate', 'Coral', 'CornflowerBlue', 'Crimson', 'DarkBlue', 'DarkCyan', 'DarkGoldenRod', 'DarkGray', 'DarkGreen', 'DarkMagenta', 'DarkOliveGreen', 'DarkOrange', 'DarkOrchid', 'DarkRed', 'DarkSalmon', 'DarkSeaGreen', 'DarkSlateBlue', 'DarkSlateGray', 'DarkTurquoise', 'DarkViolet', 'DeepPink', 'DeepSkyBlue', 'DimGray', 'DodgerBlue', 'FireBrick', 'ForestGreen', 'Fuchsia', 'Gold', 'GoldenRod', 'Gray', 'Green', 'GreenYellow', 'HotPink', 'IndianRed ', 'Indigo ', 'LawnGreen', 'LightBlue', 'LightCoral', 'LightGreen', 'LightPink', 'LightSalmon', 'LightSeaGreen', 'LightSkyBlue', 'LightSlateGray', 'LightSteelBlue', 'Lime', 'LimeGreen', 'Magenta', 'Maroon', 'MediumAquaMarine', 'MediumBlue', 'MediumOrchid', 'MediumPurple', 'MediumSeaGreen', 'MediumSlateBlue', 'MediumTurquoise', 'MediumVioletRed', 'MidnightBlue', 'Navy', 'Olive', 'OliveDrab', 'Orange', 'OrangeRed', 'Orchid', 'PaleVioletRed', 'Peru', 'Pink', 'Plum', 'Purple', 'RebeccaPurple', 'Red', 'RosyBrown', 'RoyalBlue', 'SaddleBrown', 'Salmon', 'SandyBrown', 'SeaGreen', 'Sienna', 'SkyBlue', 'SlateBlue', 'SlateGray', 'SpringGreen', 'SteelBlue', 'Tan', 'Teal', 'Tomato', 'Turquoise', 'Violet', 'Yellow', 'YellowGreen'],
-			len = colors.length;
+	// var setUserColor = function() {
+	// 	var colors = ['Aqua', 'Aquamarine', 'Black', 'Blue', 'BlueViolet', 'Brown', 'CadetBlue', 'Chartreuse', 'Chocolate', 'Coral', 'CornflowerBlue', 'Crimson', 'DarkBlue', 'DarkCyan', 'DarkGoldenRod', 'DarkGray', 'DarkGreen', 'DarkMagenta', 'DarkOliveGreen', 'DarkOrange', 'DarkOrchid', 'DarkRed', 'DarkSalmon', 'DarkSeaGreen', 'DarkSlateBlue', 'DarkSlateGray', 'DarkTurquoise', 'DarkViolet', 'DeepPink', 'DeepSkyBlue', 'DimGray', 'DodgerBlue', 'FireBrick', 'ForestGreen', 'Fuchsia', 'Gold', 'GoldenRod', 'Gray', 'Green', 'GreenYellow', 'HotPink', 'IndianRed ', 'Indigo ', 'LawnGreen', 'LightBlue', 'LightCoral', 'LightGreen', 'LightPink', 'LightSalmon', 'LightSeaGreen', 'LightSkyBlue', 'LightSlateGray', 'LightSteelBlue', 'Lime', 'LimeGreen', 'Magenta', 'Maroon', 'MediumAquaMarine', 'MediumBlue', 'MediumOrchid', 'MediumPurple', 'MediumSeaGreen', 'MediumSlateBlue', 'MediumTurquoise', 'MediumVioletRed', 'MidnightBlue', 'Navy', 'Olive', 'OliveDrab', 'Orange', 'OrangeRed', 'Orchid', 'PaleVioletRed', 'Peru', 'Pink', 'Plum', 'Purple', 'RebeccaPurple', 'Red', 'RosyBrown', 'RoyalBlue', 'SaddleBrown', 'Salmon', 'SandyBrown', 'SeaGreen', 'Sienna', 'SkyBlue', 'SlateBlue', 'SlateGray', 'SpringGreen', 'SteelBlue', 'Tan', 'Teal', 'Tomato', 'Turquoise', 'Violet', 'Yellow', 'YellowGreen'],
+	// 		len = colors.length;
 
-		sgUserColor = colors[Math.floor(len*Math.random())];
+	// 	sgUserColor = colors[Math.floor(len*Math.random())];
 
-		$('.user-color').css('background', sgUserColor);
-	};
+	// 	$('.user-color').css('background', sgUserColor);
+	// };
 
 
 	/**
@@ -289,9 +289,9 @@
 	* @returns {undefined}
 	*/
 	var initRemote = function() {
-		initIdentifier();
+		// initIdentifier();
 		sgUsername = io.id;
-		setUserColor();
+		// setUserColor();
 		initSocketListeners();
 		initLoginForm();
 		initCalibrationForm();
@@ -310,6 +310,16 @@
 			initRemote();
 		}
 	};
+
+
+	/**
+	* when device doesn't support deviceorentation, show message
+	* @returns {undefined}
+	*/
+	var nodeviceorientationHandler = function() {
+		
+	};
+	
 	
 	
 	/**
@@ -318,7 +328,9 @@
 	* @returns {undefined}
 	*/
 	var init = function() {
-		$(document).on('connectionready.socket', connectionReadyHandler);
+		$(document).on('connectionready.socket', connectionReadyHandler)
+				   .on('nosupport.deviceorientation', nodeviceorientationHandler);
+
 	};
 
 	$(document).ready(init);
