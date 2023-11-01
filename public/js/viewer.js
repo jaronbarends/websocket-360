@@ -278,14 +278,22 @@
 	* @returns {undefined}
 	*/
 	var initViewer = function(colorStr) {
-		var urlParts = [
-			//'http://cgi.volkswagen.nl/V/MODELTYPE_BEET/2016/light/TRIMLINE_BEET_DESI/',
-			//'/mstnd01/TRIMLINE_BEET_DESI_door-2_rim-PJ1_lamp-8ID_color-',
-			'http://cgi.volkswagen.nl/V/MODELTYPE_UP/2016/light/TRIMLINE_UP_MOVEUP/',
-			'/mstnd01/TRIMLINE_UP_MOVEUP_door-4_rim-C0D_lamp-8IA_color-',
+		// var urlParts = [
+		// 	//'http://cgi.volkswagen.nl/V/MODELTYPE_BEET/2016/light/TRIMLINE_BEET_DESI/',
+		// 	//'/mstnd01/TRIMLINE_BEET_DESI_door-2_rim-PJ1_lamp-8ID_color-',
+		// 	'http://cgi.volkswagen.nl/V/MODELTYPE_UP/2016/light/TRIMLINE_UP_MOVEUP/',
+		// 	'/mstnd01/TRIMLINE_UP_MOVEUP_door-4_rim-C0D_lamp-8IA_color-',
+		// 	'_view-',
+		// 	'.jpg'
+		// ];
+		const urlParts = [
+			'/assets/img/TRIMLINE_UP_MOVEUP_door-4_rim-C0D_lamp-8IA_color-',
 			'_view-',
 			'.jpg'
-		];
+		]
+		// http://localhost:3000/assets/img/TRIMLINE_UP_MOVEUP_door-4_rim-C0D_lamp-8IA_color-2T2T_view-01.jpg
+		// http://cgi.volkswagen.nl/V/MODELTYPE_UP/2016/light/TRIMLINE_UP_MOVEUP/B4B4/mstnd01/TRIMLINE_UP_MOVEUP_door-4_rim-C0D_lamp-8IA_color-B4B4_view-06.jpg
+		
 
 		if (!colorStr) {
 			colorStr = 'B4B4';//white
@@ -305,7 +313,8 @@
 			}
 
 			var $img = $('<img width="821" height="513" alt="">'),
-				src = urlParts[0]+colorStr+urlParts[1]+colorStr+urlParts[2]+viewStr+urlParts[3];
+				// src = urlParts[0]+colorStr+urlParts[1]+colorStr+urlParts[2]+viewStr+urlParts[3];
+				src = urlParts[0]+colorStr+urlParts[1]+viewStr+urlParts[2];
 			
 			$img.attr('src', src).appendTo($sgViewer);
 
